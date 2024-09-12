@@ -12,7 +12,7 @@ type GetDataArgs = {
 export const getData = createAsyncThunk<DataType, GetDataArgs, {rejectValue: {message: string, status: number}}>(
     "character/getMany", async ({apiType, next, search}, {rejectWithValue}) => {
         const querySearch = !!search ? Object.entries(search).map(([key, value]) => `&${key}=${value}`).join("") : "";
-        const queryString = (next ?? `${import.meta.env.VITE_SERVER_URL}/api/${apiType}/?page=1${querySearch}`)
+        const queryString = (next ?? `https://rickandmortyapi.com/api/${apiType}/?page=1${querySearch}`)
         const response = await axios.get(queryString, {validateStatus: status => status < 500})
         if (response.status < 200 || response.status >= 400) 
             return rejectWithValue({status: response.status, message: response.statusText})
