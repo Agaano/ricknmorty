@@ -1,8 +1,7 @@
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { CharactersDataType, CharactersSliceType } from "../../types/characterTypes";
 import { Status } from "../../types/baseTypes";
-import { AnyResourceArrayType, CharacterType, DataSliceType, DataType, EpisodeType, LocationType } from "../../types/dataTypes";
+import { AnyResourceArrayType, DataSliceType, DataType } from "../../types/dataTypes";
 
 type GetDataArgs = {
     apiType: "character" | "location" | "episode",

@@ -14,7 +14,7 @@ import useNavigation from "../hooks/useNavigation";
 import { Button } from "@mui/material";
 
 export default ({props}: PagePropsType) => {
-    const {status, data, error} = useSelector((state: RootStateType) => state.data);
+    const {data} = useSelector((state: RootStateType) => state.data);
     const dispatch: AppDispatch = useDispatch();
     const {navigate, navigation} = useNavigation();
     const target = +(parseSearch(props).target)

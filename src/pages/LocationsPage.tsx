@@ -11,9 +11,10 @@ import LocationFilters from "../components/Location/LocationFilters";
 import parseSearch from "../parseSearch";
 import Location from "../components/Location/Location";
 import useNavigation from "../hooks/useNavigation";
+import { Button } from "@mui/material";
 
 export default ({props}: PagePropsType) => {
-    const {status, data, error} = useSelector((state: RootStateType) => state.data);
+    const {data} = useSelector((state: RootStateType) => state.data);
     const dispatch: AppDispatch = useDispatch();
     const {navigate} = useNavigation();
     const target = +(parseSearch(props).target)
@@ -43,7 +44,9 @@ export default ({props}: PagePropsType) => {
                 }}/>
             )}/>}
             {!data || !data.info.next ? "" : (
-                <button onClick = {() => LoadMore()}>load more</button>
+                <div style = {{display: "flex", justifyContent: "center", marginTop: "35px"}}>
+                    <Button sx={{backgroundColor: "#F2F9FE", color: "#2196F3", padding: "10px 28px", boxShadow: "0 6px 10px rgba(0,0,0,0.14)", marginInline: "auto"}} variant="contained" onClick = {() => LoadMore()}>load more</Button>
+                </div>
             )}
         </>
     )

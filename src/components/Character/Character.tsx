@@ -1,17 +1,16 @@
-import { Avatar, Box, Button, Container, Grid2 as Grid, IconButton, Stack, Typography } from "@mui/material";
+import { Avatar, Box, Button, Grid2 as Grid, IconButton, Stack, Typography } from "@mui/material";
 import { useGetElementQuery } from "../../store/slices/elementData";
-import { ArrowBack, ArrowForward, ArrowForwardIos, ArrowForwardIosOutlined, Image } from "@mui/icons-material";
+import { ArrowBack, ArrowForwardIos } from "@mui/icons-material";
 import { CharacterType, EpisodeType } from "../../types/dataTypes";
 import { useEffect, useState } from "react";
-import { QueryStatus } from "@reduxjs/toolkit/query";
 import axios from "axios";
 import useNavigation from "../../hooks/useNavigation";
 
 export default ({id}: {id: number}) => {
-    const {data, isLoading, status} = useGetElementQuery({id, type: "character"})
+    const {data, isLoading} = useGetElementQuery({id, type: "character"})
     const character = data as CharacterType;
     const [episodes, setEpisodes] = useState<EpisodeType[]>([]);
-    const {navigate, navigation} = useNavigation();
+    const {navigate} = useNavigation();
 
     useEffect(() => {
         if (!character) return;

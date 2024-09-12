@@ -1,7 +1,7 @@
 import { Close, Menu } from "@mui/icons-material";
 import useNavigation from "../hooks/useNavigation";
 import { useScreenSize } from "./FilterLayout";
-import { Box, Button, Drawer, IconButton, Stack } from "@mui/material";
+import { Box, Drawer, IconButton, Stack } from "@mui/material";
 import { useState } from "react";
 
 export default () => {

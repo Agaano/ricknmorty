@@ -1,5 +1,5 @@
 import { Card, CardActionArea, CardContent } from "@mui/material";
-import { EpisodeType, LocationType } from "../../types/dataTypes";
+import { EpisodeType } from "../../types/dataTypes";
 import { CardCaption, CardTitle } from "../ModTypography";
 
 export default ({episode, onClick}: {episode: EpisodeType, onClick: () => void}) => {
