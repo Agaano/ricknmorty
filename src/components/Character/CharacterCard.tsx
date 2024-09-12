@@ -1,4 +1,4 @@
-import { Card, CardActionArea, CardContent, CardMedia, Typography } from "@mui/material"
+import { Card, CardActionArea, CardContent, CardMedia } from "@mui/material"
 import { CharacterType } from "../../types/dataTypes"
 import { CardCaption, CardTitle } from "../ModTypography"
 export default ({character, onClick}: {character: CharacterType, onClick: () => void}) => {

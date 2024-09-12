@@ -1,6 +1,6 @@
-import { Avatar, Box, Button, Container, Grid2 as Grid, Stack, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import { useGetElementQuery } from "../../store/slices/elementData";
-import { ArrowBack, ArrowForward, ArrowForwardIos, ArrowForwardIosOutlined, Image } from "@mui/icons-material";
+import { ArrowBack } from "@mui/icons-material";
 import { CharacterType, EpisodeType } from "../../types/dataTypes";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -9,10 +9,10 @@ import LayoutDataGrid from "../LayoutDataGrid";
 import CharacterCard from "../Character/CharacterCard";
 
 export default ({id}: {id: number}) => {
-    const {data, isLoading, status} = useGetElementQuery({id, type: "episode"})
+    const {data, isLoading} = useGetElementQuery({id, type: "episode"})
     const episode = data as EpisodeType;
     const [characters, setCharacters] = useState<CharacterType[]>([]);
-    const {navigate, navigation} = useNavigation();
+    const {navigate} = useNavigation();
 
     useEffect(() => {
         if (!episode) return;
